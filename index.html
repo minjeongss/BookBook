@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookBook</title>
+    <link rel="stylesheet" href="./styles/root.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/root.css" />
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/fetch.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="headerWrap">
+        <h1><img class="logoImg" src="./images/logo.svg" alt="" /></h1>
+        <form class="searchForm" action="submit">
+          <input class="searchInput" type="text" name="searchInput" />
+        </form>
+        <img class="heartImg" src="./images/heart.svg" alt="" />
+      </div>
+    </header>
+    <main>
+      <ul class="books"></ul>
+    </main>
+    <footer></footer>
+    <div id="result"></div>
+  </body>
+</html>

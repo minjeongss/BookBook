@@ -1,0 +1,18 @@
+main {
+  max-width: 1000px;
+  width: 100%;
+  background-color: antiquewhite;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+}
+.books {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  place-items: center;
+  gap: calc(200px / 3);
+}
+.book .cover {
+  width: 200px;
+}
