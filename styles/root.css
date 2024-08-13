@@ -3,7 +3,10 @@
   margin: 0;
   box-sizing: border-box;
   --color-black: #2c2c2c;
-  --color-gray: #eeeeee;
+  --color-lightGray: #eeeeee;
+  --color-gray: #a5a5a5;
+  --color-blueGray: #f5f5f5;
+  --color-red: #ff0404;
 }
 li {
   list-style: none;

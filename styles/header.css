@@ -1,7 +1,7 @@
 header {
   width: 100%;
   height: 80px;
-  background-color: var(--color-gray);
+  background-color: var(--color-lightGray);
 }
 .headerWrap {
   max-width: 1000px;
@@ -16,10 +16,6 @@ header {
 .logoImg {
   width: 60px;
 }
-.heartImg {
-  width: 40px;
-  fill: var(--color-black);
-}
 .searchForm {
   width: 50%;
   height: 50%;
@@ -27,4 +23,55 @@ header {
 .searchInput {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
+  border-style: none;
+  background-image: url("../images/search.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  padding: 10px;
+}
+
+.heartModalBtn {
+  width: 40px;
+  stroke: black;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 70%;
+  background-color: var(--color-blueGray);
+  border-radius: 20px;
+  z-index: 999;
+}
+.modal.on {
+  display: block;
+}
+.modal p {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.modal img {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  transform: translate((-5%, 0));
+}
+.modalBackground {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 500;
+}
+.modalBackground.on {
+  display: block;
 }

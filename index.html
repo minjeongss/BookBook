@@ -10,21 +10,34 @@
     <link rel="stylesheet" href="./styles/root.css" />
     <script src="./scripts/main.js" defer></script>
     <script src="./scripts/fetch.js" defer></script>
+    <script src="./scripts/search.js" defer></script>
+    <script src="./scripts/favoriteModal.js" defer></script>
   </head>
   <body>
     <header>
       <div class="headerWrap">
         <h1><img class="logoImg" src="./images/logo.svg" alt="" /></h1>
-        <form class="searchForm" action="submit">
-          <input class="searchInput" type="text" name="searchInput" />
-        </form>
-        <img class="heartImg" src="./images/heart.svg" alt="" />
+        <div class="searchForm">
+          <input
+            class="searchInput"
+            type="text"
+            name="searchInput"
+            placeholder="검색어를 입력해주세요"
+          />
+        </div>
+        <img class="heartModalBtn" src="./images/heart.svg" alt="" />
       </div>
     </header>
     <main>
+      <p class="searchResult"></p>
       <ul class="books"></ul>
     </main>
     <footer></footer>
+    <div class="modalBackground"></div>
+    <div class="modal">
+      <p>즐겨찾는 도서</p>
+      <img class="modalClose" src="./images/cancel.svg" alt="" />
+    </div>
     <div id="result"></div>
   </body>
 </html>

@@ -1,11 +1,17 @@
 main {
   max-width: 1000px;
   width: 100%;
-  background-color: antiquewhite;
   margin: auto;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+.searchResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 }
 .books {
   display: grid;
@@ -13,6 +19,20 @@ main {
   place-items: center;
   gap: calc(200px / 3);
 }
+.book {
+  position: relative;
+}
 .book .cover {
   width: 200px;
+}
+.book .heartBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  stroke: var(--color-gray);
+  fill: none;
+}
+.book .heartBtn.on {
+  stroke: none;
+  fill: var(--color-red);
 }
