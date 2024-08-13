@@ -1,11 +1,11 @@
 const $books = document.querySelector(".books");
 
-const makeLi = () => {
+const makeBook = () => {
   const li = document.createElement("li");
   li.classList.add("book");
   li.innerHTML = `
     <div>
-      <img class="cover"  src="./images/bookCover.jpg" alt="book image"/>
+      <img class="cover" src="./images/bookCover.jpg" alt="book image"/>
       <p>{책 내용}</p>
     </div>
     <div>
@@ -24,7 +24,7 @@ const makeLi = () => {
 };
 const loadBooks = () => {
   for (let i = 0; i < 8; i++) {
-    $books.appendChild(makeLi());
+    $books.appendChild(makeBook());
   }
 };
 
