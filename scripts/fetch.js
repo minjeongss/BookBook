@@ -40,10 +40,19 @@ const loadBooks = async () => {
   }
 };
 
-const makeBook = (cover, title, price, author, publisher, description) => {
+const makeBook = (
+  isbn,
+  cover,
+  title,
+  price,
+  author,
+  publisher,
+  description
+) => {
   const li = document.createElement("li");
   li.classList.add("book");
   li.innerHTML = `
+    <p class="isbn" hidden>${isbn}</p>
     <div>
       <img class="cover" src="${cover}" alt="book image"/>
       <p hidden>${description}</p>
@@ -66,6 +75,7 @@ const loadBooksTemplate = (data) => {
   data.map((elem) => {
     $books.appendChild(
       makeBook(
+        elem["isbn"],
         elem["cover"],
         elem["title"],
         elem["priceStandard"],
