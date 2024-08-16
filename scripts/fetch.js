@@ -1,5 +1,5 @@
 //fake fetch: dummy data를 활용
-import { FAKE_API_FILE } from "./FAKE_API_FILE.js";
+// import { FAKE_API_FILE } from "./FAKE_API_FILE.js";
 const fakeFetch = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -40,19 +40,16 @@ const getData = () => {
 //       return undefined;
 //     });
 // };
-const getFavoriteData = async () => {
-  try {
-    const response = await fetch(
-      "http://localhost:3000/api/favorite?itemIsbn=9791187824824"
-    );
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log(data.item);
-  } catch (error) {
-    console.error("API 요청 중 오류 발생:", error);
-  }
+const getFavoriteData = async (isbn) => {
+  return fetch(`http://localhost:3000/api/favorite?itemIsbn=${isbn}`)
+    .then((response) => response.json())
+    .then((data) => {
+      return data.item;
+    })
+    .catch((error) => {
+      console.error("API 요청 중 오류 발생:", error);
+      return undefined;
+    });
 };
 
 //fetch한 데이터 활용
@@ -62,9 +59,12 @@ const loadBooks = async () => {
     console.log("FAIL LOAD");
   } else {
     console.log("SUCCESS LOAD");
-    console.log(data);
     loadBooksTemplate(data);
   }
+};
+const loadFavoriteBooks = async (isbn) => {
+  const data = await getFavoriteData(isbn);
+  return data;
 };
 
 const makeBook = (
@@ -114,4 +114,3 @@ const loadBooksTemplate = (data) => {
   });
 };
 loadBooks();
-getFavoriteData();
