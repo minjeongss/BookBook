@@ -37,6 +37,29 @@ app.get("/api/search", async (req, res) => {
   }
 });
 
+app.get("/api/favorite", async (req, res) => {
+  try {
+    const { itemType, itemIsbn } = req.query;
+    const apiUrl = "https://www.aladin.co.kr/ttb/api/ItemLookUp.aspx";
+
+    const response = await axios.get(apiUrl, {
+      params: {
+        ttbkey: process.env.TTB_KEY,
+        itemIdType: itemType || "ISBN13",
+        ItemId: itemIsbn || "9791187824824",
+        output: "js",
+        Version: "20131101",
+      },
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching data from Aladin API" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

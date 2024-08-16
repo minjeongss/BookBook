@@ -1,6 +1,47 @@
+//fake fetch: dummy data를 활용
+// import { FAKE_API_FILE } from "./FAKE_API_FILE.js";
+const fakeFetch = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ item: FAKE_API_FILE });
+    }, 1000);
+  });
+};
+
 //fetch
 const getData = () => {
+  // return fakeFetch()
+  //   .then((data) => {
+  //     return data.item;
+  //   })
+  //   .catch((error) => {
+  //     console.error("API 요청 중 오류 발생:", error);
+  //     return undefined;
+  //   });
   return fetch("http://localhost:3000/api/search?query=aladdin")
+    .then((response) => response.json())
+    .then((data) => {
+      return data.item;
+    })
+    .catch((error) => {
+      console.error("API 요청 중 오류 발생:", error);
+      return undefined;
+    });
+};
+
+// const getFavoriteData = () => {
+//   return fetch("http://localhost:3000/api/favorite?itemIsbn=9791187824824")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((error) => {
+//       console.error("API 요청 중 오류 발생:", error);
+//       return undefined;
+//     });
+// };
+const getFavoriteData = async (isbn) => {
+  return fetch(`http://localhost:3000/api/favorite?itemIsbn=${isbn}`)
     .then((response) => response.json())
     .then((data) => {
       return data.item;
@@ -21,11 +62,24 @@ const loadBooks = async () => {
     loadBooksTemplate(data);
   }
 };
+const loadFavoriteBooks = async (isbn) => {
+  const data = await getFavoriteData(isbn);
+  return data;
+};
 
-const makeBook = (cover, title, price, author, publisher, description) => {
+const makeBook = (
+  isbn,
+  cover,
+  title,
+  price,
+  author,
+  publisher,
+  description
+) => {
   const li = document.createElement("li");
   li.classList.add("book");
   li.innerHTML = `
+    <p class="isbn" hidden>${isbn}</p>
     <div>
       <img class="cover" src="${cover}" alt="book image"/>
       <p hidden>${description}</p>
@@ -48,6 +102,7 @@ const loadBooksTemplate = (data) => {
   data.map((elem) => {
     $books.appendChild(
       makeBook(
+        elem["isbn13"],
         elem["cover"],
         elem["title"],
         elem["priceStandard"],
