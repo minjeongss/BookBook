@@ -6,6 +6,15 @@ const getFromLocal = () => {
   const prevList = JSON.parse(localStorage.getItem("isbnList"));
   if (prevList) {
     localList = prevList;
+    const book = $books.children;
+    console.log(book);
+    for (let i = 0; i < book.length; i++) {
+      const isbn = book[i].querySelector(".isbn").innerText;
+      if (localList.includes(isbn)) {
+        console.log("OK", isbn);
+        book[i].querySelector(".heartBtn").classList.add("on");
+      }
+    }
   } else {
     localList = [];
   }
@@ -32,6 +41,7 @@ const deleteToLocal = (isbn) => {
     localStorage.removeItem("isbnList");
   }
 };
+
 $books.addEventListener("click", (e) => {
   const targetBook = e.target;
   if (targetBook.classList.contains("book")) {
@@ -56,6 +66,9 @@ $books.addEventListener("mouseout", (e) => {
 });
 
 const initLocal = () => {
-  getFromLocal();
+  //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
+  setTimeout(() => {
+    getFromLocal();
+  }, 1000);
 };
 initLocal();
