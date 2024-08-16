@@ -9,6 +9,14 @@ const saveToLocal = (isbn) => {
     alert("⚠️ 좋아요의 최대 개수는 20개입니다 ⚠️");
   }
 };
+const getFromLocal = () => {
+  const prevList = JSON.parse(localStorage.getItem("isbnList"));
+  if (prevList) {
+    localList = prevList;
+  } else {
+    localList = [];
+  }
+};
 $books.addEventListener("click", (e) => {
   const targetBook = e.target;
   if (targetBook.classList.contains("book")) {
@@ -27,3 +35,8 @@ $books.addEventListener("mouseout", (e) => {
     // console.log(li);
   }
 });
+
+const initLocal = () => {
+  getFromLocal();
+};
+initLocal();

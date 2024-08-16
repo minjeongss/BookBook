@@ -14,6 +14,8 @@
 
 - localStorage에 isbn값 저장
   - 메인 화면의 책 리스트의 하단 버튼 누르면 isbn값 저장
+- localStorage로부터 isbn값 가져오기
+  - 화면이 초기화될 때 localList에 isbn 리스트 저장
 
 ## 서버 실행
 
