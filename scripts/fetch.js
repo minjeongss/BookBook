@@ -29,6 +29,32 @@ const getData = () => {
     });
 };
 
+// const getFavoriteData = () => {
+//   return fetch("http://localhost:3000/api/favorite?itemIsbn=9791187824824")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((error) => {
+//       console.error("API 요청 중 오류 발생:", error);
+//       return undefined;
+//     });
+// };
+const getFavoriteData = async () => {
+  try {
+    const response = await fetch(
+      "http://localhost:3000/api/favorite?itemIsbn=9791187824824"
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data.item);
+  } catch (error) {
+    console.error("API 요청 중 오류 발생:", error);
+  }
+};
+
 //fetch한 데이터 활용
 const loadBooks = async () => {
   const data = await getData();
@@ -36,6 +62,7 @@ const loadBooks = async () => {
     console.log("FAIL LOAD");
   } else {
     console.log("SUCCESS LOAD");
+    console.log(data);
     loadBooksTemplate(data);
   }
 };
@@ -75,7 +102,7 @@ const loadBooksTemplate = (data) => {
   data.map((elem) => {
     $books.appendChild(
       makeBook(
-        elem["isbn"],
+        elem["isbn13"],
         elem["cover"],
         elem["title"],
         elem["priceStandard"],
@@ -87,3 +114,4 @@ const loadBooksTemplate = (data) => {
   });
 };
 loadBooks();
+getFavoriteData();
