@@ -10,16 +10,7 @@ const fakeFetch = () => {
 
 //fetch
 const getData = () => {
-  return fakeFetch()
-    .then((data) => {
-      return data.item;
-    })
-    .catch((error) => {
-      console.error("API 요청 중 오류 발생:", error);
-      return undefined;
-    });
-  // return fetch("http://localhost:3000/api/search?query=aladdin")
-  //   .then((response) => response.json())
+  // return fakeFetch()
   //   .then((data) => {
   //     return data.item;
   //   })
@@ -27,6 +18,15 @@ const getData = () => {
   //     console.error("API 요청 중 오류 발생:", error);
   //     return undefined;
   //   });
+  return fetch("http://localhost:3000/api/search?query=aladdin")
+    .then((response) => response.json())
+    .then((data) => {
+      return data.item;
+    })
+    .catch((error) => {
+      console.error("API 요청 중 오류 발생:", error);
+      return undefined;
+    });
 };
 
 //fetch한 데이터 활용

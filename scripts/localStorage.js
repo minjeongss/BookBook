@@ -7,11 +7,9 @@ const getFromLocal = () => {
   if (prevList) {
     localList = prevList;
     const book = $books.children;
-    console.log(book);
     for (let i = 0; i < book.length; i++) {
       const isbn = book[i].querySelector(".isbn").innerText;
       if (localList.includes(isbn)) {
-        console.log("OK", isbn);
         book[i].querySelector(".heartBtn").classList.add("on");
       }
     }
@@ -68,6 +66,7 @@ $books.addEventListener("mouseout", (e) => {
 const initLocal = () => {
   //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
   setTimeout(() => {
+    console.log("SUCCESS LOAD HEART");
     getFromLocal();
   }, 1000);
 };

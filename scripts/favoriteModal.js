@@ -37,6 +37,7 @@ $heartModalBtn.addEventListener("click", (e) => {
   if (!$modal.classList.contains("on")) {
     $modal.classList.add("on");
     $modalBackground.classList.add("on");
+
     loadFavoriteBooks();
   }
 });
