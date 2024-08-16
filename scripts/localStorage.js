@@ -1,6 +1,17 @@
 const $books = document.querySelector(".books");
 let localList = [];
 
+//localStorage로부터 값 불러오기
+const getFromLocal = () => {
+  const prevList = JSON.parse(localStorage.getItem("isbnList"));
+  if (prevList) {
+    localList = prevList;
+  } else {
+    localList = [];
+  }
+};
+
+//loclaStorage에 값 저장하기
 const saveToLocal = (isbn) => {
   if (localList.length >= 0 && localList.length <= 4) {
     localList.push(isbn);
@@ -9,12 +20,16 @@ const saveToLocal = (isbn) => {
     alert("⚠️ 좋아요의 최대 개수는 20개입니다 ⚠️");
   }
 };
-const getFromLocal = () => {
-  const prevList = JSON.parse(localStorage.getItem("isbnList"));
-  if (prevList) {
-    localList = prevList;
+
+//각각의 책에 조재하는 버튼 눌렀을 때, localStorage에 값 삭제하기
+const deleteToLocal = (isbn) => {
+  const updateList = localList.filter((elem) => elem !== isbn);
+  localList = updateList;
+  if (updateList && updateList.length > 0) {
+    localStorage.setItem("isbnList", JSON.stringify(updateList));
   } else {
-    localList = [];
+    // localList가 빈 배열이면 localStorage에서 해당 항목을 제거합니다.
+    localStorage.removeItem("isbnList");
   }
 };
 $books.addEventListener("click", (e) => {
@@ -24,9 +39,13 @@ $books.addEventListener("click", (e) => {
   }
   const targetHeart = e.target.closest(".heartBtn");
   if (targetHeart) {
-    targetHeart.classList.toggle("on");
     const isbn = e.target.closest(".book").querySelector(".isbn").innerText;
-    saveToLocal(isbn);
+    if (targetHeart.classList.contains("on")) {
+      deleteToLocal(isbn);
+    } else {
+      saveToLocal(isbn);
+    }
+    targetHeart.classList.toggle("on");
   }
 });
 $books.addEventListener("mouseout", (e) => {
