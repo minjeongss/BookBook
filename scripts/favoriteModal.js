@@ -13,7 +13,6 @@ const makeFavoriteBook = (
   publisher,
   description
 ) => {
-  console.log(isbn, title, price);
   const li = document.createElement("li");
   li.classList.add("favoriteBook");
   li.innerHTML = `
