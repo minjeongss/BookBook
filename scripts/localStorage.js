@@ -1,5 +1,6 @@
 const $books = document.querySelector(".books");
 let localList = [];
+let isFavoriteLimit = false;
 
 //localStorage로부터 값 불러오기
 const getFromLocal = () => {
@@ -25,6 +26,7 @@ const saveToLocal = (isbn) => {
     localStorage.setItem("isbnList", JSON.stringify(localList));
   } else {
     alert("⚠️ 좋아요의 최대 개수는 20개입니다 ⚠️");
+    isFavoriteLimit = true;
   }
 };
 
@@ -35,10 +37,9 @@ const deleteToLocal = (isbn) => {
   if (updateList && updateList.length > 0) {
     localStorage.setItem("isbnList", JSON.stringify(updateList));
   } else {
-    // localList가 빈 배열이면 localStorage에서 해당 항목을 제거합니다.
     localStorage.removeItem("isbnList");
   }
-  console.log(localList);
+  isFavoriteLimit = false;
 };
 
 $books.addEventListener("click", (e) => {
@@ -54,7 +55,7 @@ $books.addEventListener("click", (e) => {
     } else {
       saveToLocal(isbn);
     }
-    targetHeart.classList.toggle("on");
+    if (!isFavoriteLimit) targetHeart.classList.toggle("on");
   }
 });
 $books.addEventListener("mouseout", (e) => {
