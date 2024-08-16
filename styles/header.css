@@ -79,8 +79,22 @@ header {
   max-height: 500px;
   overflow-y: auto;
 }
+.modal .favoriteBook {
+  position: relative;
+}
 .modal .favoriteBook .cover {
   width: 200px;
+}
+.modal .favoriteBook .heartBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  stroke: var(--color-gray);
+  fill: none;
+}
+.modal .favoriteBook .heartBtn.on {
+  stroke: none;
+  fill: var(--color-red);
 }
 
 .modalBackground {
