@@ -64,4 +64,5 @@ $heartModalBtn.addEventListener("click", (e) => {
 $modalClose.addEventListener("click", () => {
   $modal.classList.remove("on");
   $modalBackground.classList.remove("on");
+  $favoriteBooks.replaceChildren();
 });

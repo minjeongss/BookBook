@@ -44,6 +44,7 @@ const getFavoriteData = async (isbn) => {
   return fetch(`http://localhost:3000/api/favorite?itemIsbn=${isbn}`)
     .then((response) => response.json())
     .then((data) => {
+      console.log("호출");
       return data.item;
     })
     .catch((error) => {

@@ -38,6 +38,7 @@ const deleteToLocal = (isbn) => {
     // localList가 빈 배열이면 localStorage에서 해당 항목을 제거합니다.
     localStorage.removeItem("isbnList");
   }
+  console.log(localList);
 };
 
 $books.addEventListener("click", (e) => {
