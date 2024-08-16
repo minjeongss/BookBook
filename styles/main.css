@@ -36,3 +36,8 @@ main {
   stroke: none;
   fill: var(--color-red);
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}

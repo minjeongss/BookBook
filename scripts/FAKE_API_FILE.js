@@ -1,0 +1,26 @@
+const API_FILE = {
+  adult: false,
+  author: "아이샤 사이드 (지은이), 김미선 (옮긴이)",
+  categoryId: 50919,
+  categoryName: "국내도서>소설/시/희곡>영미소설",
+  cover:
+    "https://image.aladin.co.kr/product/20946/86/coversum/k822636271_1.jpg",
+  customerReviewRank: 10,
+  description:
+    "2019년 최고의 화제작 영화 〈알라딘〉의 세계관을 관통하는 디즈니 오리지널 소설. 아그라바를 떠나 시공간을 넘나드는 마법이 공존하는 세계에서 신비하고 긴장감 넘치는 모험담이 펼쳐진다.",
+  fixedPrice: true,
+  isbn: "K822636271",
+  isbn13: "9791187824824",
+  itemId: 209468603,
+  link: "http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=209468603&partner=openAPI&start=api",
+  mallType: "BOOK",
+  mileage: 800,
+  priceSales: 14400,
+  priceStandard: 16000,
+  pubDate: "2019-09-25",
+  publisher: "아르누보",
+  salesPoint: 169,
+  stockStatus: "",
+  subInfo: {},
+  title: "디즈니 알라딘 - 파 프롬 아그라바",
+};

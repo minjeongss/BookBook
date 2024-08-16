@@ -27,7 +27,7 @@ const makeFavoriteBook = () => {
   return li;
 };
 const loadFavoriteBooks = () => {
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 20; i++) {
     $favoriteBooks.appendChild(makeBook());
   }
 };

@@ -12,6 +12,7 @@
     <script src="./scripts/fetch.js" defer></script>
     <script src="./scripts/search.js" defer></script>
     <script src="./scripts/favoriteModal.js" defer></script>
+    <script src="./scripts/pagination.js" defer></script>
   </head>
   <body>
     <header>
@@ -31,6 +32,41 @@
     <main>
       <p class="searchResult"></p>
       <ul class="books"></ul>
+      <div class="pagination">
+        <svg
+          class="arrowLeft"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.33331 7.99998H12.6666M12.6666 7.99998L7.99998 3.33331M12.6666 7.99998L7.99998 12.6666"
+            stroke="#1E1E1E"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div class="paginationNumber"></div>
+        <svg
+          class="arrowRight"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.33331 7.99998H12.6666M12.6666 7.99998L7.99998 3.33331M12.6666 7.99998L7.99998 12.6666"
+            stroke="#1E1E1E"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
     </main>
     <div class="modalBackground"></div>
     <div class="modal">

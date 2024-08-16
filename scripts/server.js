@@ -20,7 +20,7 @@ app.get("/api/search", async (req, res) => {
         ttbkey: process.env.TTB_KEY,
         Query: query || "aladdin",
         QueryType: queryType || "Title",
-        MaxResults: maxResults || 10,
+        MaxResults: maxResults || 8,
         start: start || 1,
         SearchTarget: searchTarget || "Book",
         output: "js",
