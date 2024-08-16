@@ -10,7 +10,7 @@ const makeFavoriteBook = () => {
   li.innerHTML = `
     <div>
       <img class="cover" src="./images/bookCover.jpg" alt="book image"/>
-      <p>{책 내용}</p>
+      <p hidden>{책 내용}</p>
     </div>
     <div>
         <p>{책 제목}</p>
@@ -28,7 +28,7 @@ const makeFavoriteBook = () => {
 };
 const loadFavoriteBooks = () => {
   for (let i = 0; i < 20; i++) {
-    $favoriteBooks.appendChild(makeBook());
+    $favoriteBooks.appendChild(makeFavoriteBook());
   }
 };
 
