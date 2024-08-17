@@ -31,7 +31,7 @@ const makeBook = (
   li.classList.add("book");
   li.innerHTML = `
       <p class="isbn" hidden>${isbn}</p>
-      <div>
+      <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
         <p hidden>${description}</p>
       </div>
@@ -79,7 +79,7 @@ const makeFavoriteBook = (
   li.classList.add("favoriteBook");
   li.innerHTML = `
     <p class="isbn" hidden>${isbn}</p>
-      <div>
+      <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
         <p hidden>${description}</p>
       </div>
