@@ -42,7 +42,9 @@ const getFavoriteData = async (isbn) => {
 };
 
 const getSearchData = (searchValue) => {
-  return fetch(`http://localhost:3000/api/search?query=${searchValue}`)
+  return fetch(
+    `http://localhost:3000/api/search?query=${searchValue}&queryType=Keyword`
+  )
     .then((response) => response.json())
     .then((data) => {
       return data.item;
