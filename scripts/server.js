@@ -12,7 +12,7 @@ app.use(cors());
 
 app.get("/api/list", async (req, res) => {
   try {
-    const { queryType, maxResults, start, searchTarget } = req.query;
+    const { queryType, maxResults, cover, start, searchTarget } = req.query;
     const apiUrl = "https://www.aladin.co.kr/ttb/api/ItemList.aspx";
 
     const response = await axios.get(apiUrl, {
@@ -20,6 +20,7 @@ app.get("/api/list", async (req, res) => {
         ttbkey: process.env.TTB_KEY,
         QueryType: queryType || "BestSeller",
         MaxResults: maxResults || 8,
+        Cover: cover || "Big",
         start: start || 1,
         SearchTarget: searchTarget || "Book",
         output: "js",
