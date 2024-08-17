@@ -18,9 +18,7 @@ const getData = () => {
   //     console.error("API 요청 중 오류 발생:", error);
   //     return undefined;
   //   });
-  return fetch(
-    "http://localhost:3000/api/list?queryType=ItemNewAll&cover=midBig"
-  )
+  return fetch("http://localhost:3000/api/list?queryType=ItemNewAll")
     .then((response) => response.json())
     .then((data) => {
       return data.item;

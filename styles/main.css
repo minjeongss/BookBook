@@ -22,9 +22,9 @@ main {
 .book {
   position: relative;
 }
-.book .cover {
+/* .book .cover {
   width: 200px;
-}
+} */
 .book .heartBtn {
   position: absolute;
   bottom: 0;
