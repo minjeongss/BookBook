@@ -10,6 +10,33 @@ const port = 3000;
 
 app.use(cors());
 
+app.get("/api/list", async (req, res) => {
+  try {
+    const { queryType, maxResults, cover, start, searchTarget } = req.query;
+    const apiUrl = "https://www.aladin.co.kr/ttb/api/ItemList.aspx";
+
+    const response = await axios.get(apiUrl, {
+      params: {
+        ttbkey: process.env.TTB_KEY,
+        QueryType: queryType || "BestSeller",
+        MaxResults: maxResults || 20,
+        Cover: "Big",
+        start: start || 1,
+        SearchTarget: searchTarget || "Book",
+        output: "js",
+        Version: "20131101",
+      },
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching data from Aladin API" });
+  }
+});
+
 app.get("/api/search", async (req, res) => {
   try {
     const { query, queryType, maxResults, start, searchTarget } = req.query;
@@ -21,6 +48,7 @@ app.get("/api/search", async (req, res) => {
         Query: query || "aladdin",
         QueryType: queryType || "Title",
         MaxResults: maxResults || 8,
+        Cover: "Big",
         start: start || 1,
         SearchTarget: searchTarget || "Book",
         output: "js",
@@ -47,6 +75,7 @@ app.get("/api/favorite", async (req, res) => {
         ttbkey: process.env.TTB_KEY,
         itemIdType: itemType || "ISBN13",
         ItemId: itemIsbn || "9791187824824",
+        Cover: "Big",
         output: "js",
         Version: "20131101",
       },

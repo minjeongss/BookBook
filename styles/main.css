@@ -22,8 +22,14 @@ main {
 .book {
   position: relative;
 }
-.book .cover {
+.book .coverWrapper {
   width: 200px;
+  height: 200px;
+}
+.book .cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .book .heartBtn {
   position: absolute;
