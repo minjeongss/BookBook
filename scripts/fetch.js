@@ -57,6 +57,7 @@ const getSearchData = (searchValue) => {
 
 //fetch한 데이터 활용
 const loadBooks = async () => {
+  document.querySelector(".searchInput").focus();
   const data = await getData();
   if (data === undefined) {
     console.log("FAIL LOAD");
