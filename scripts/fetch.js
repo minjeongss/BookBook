@@ -29,17 +29,6 @@ const getData = () => {
     });
 };
 
-// const getFavoriteData = () => {
-//   return fetch("http://localhost:3000/api/favorite?itemIsbn=9791187824824")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       console.error("API 요청 중 오류 발생:", error);
-//       return undefined;
-//     });
-// };
 const getFavoriteData = async (isbn) => {
   return fetch(`http://localhost:3000/api/favorite?itemIsbn=${isbn}`)
     .then((response) => response.json())
@@ -52,8 +41,23 @@ const getFavoriteData = async (isbn) => {
     });
 };
 
+const getSearchData = (searchValue) => {
+  return fetch(
+    `http://localhost:3000/api/search?query=${searchValue}&queryType=Keyword`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      return data.item;
+    })
+    .catch((error) => {
+      console.error("API 요청 중 오류 발생:", error);
+      return undefined;
+    });
+};
+
 //fetch한 데이터 활용
 const loadBooks = async () => {
+  document.querySelector(".searchInput").focus();
   const data = await getData();
   if (data === undefined) {
     console.log("FAIL LOAD");
@@ -64,6 +68,10 @@ const loadBooks = async () => {
 };
 const loadFavoriteBooks = async (isbn) => {
   const data = await getFavoriteData(isbn);
+  return data;
+};
+const loadSearchBooks = async (searchValue) => {
+  const data = await getSearchData(searchValue);
   return data;
 };
 
@@ -99,6 +107,7 @@ const makeBook = (
   return li;
 };
 const loadBooksTemplate = (data) => {
+  console.log("실행");
   data.map((elem) => {
     $books.appendChild(
       makeBook(

@@ -1,12 +1,18 @@
 const $searchResult = document.querySelector(".searchResult");
 const $searchInput = document.querySelector(".searchInput");
 
-const loadSearchResult = () => {
+const loadSearchResult = async () => {
   const inputValue = $searchInput.value;
-  $searchResult.innerHTML =
-    inputValue === ""
-      ? `"${inputValue}"에 대한 검색 결과입니다.`
-      : `"${inputValue}"에 대한 검색 결과입니다.`;
+  if (inputValue === "") {
+    $books.replaceChildren();
+    loadBooks();
+    $searchResult.innerHTML = ``;
+  } else {
+    const data = await loadSearchBooks(inputValue);
+    $books.replaceChildren();
+    loadBooksTemplate(data);
+    $searchResult.innerHTML = `"${inputValue}"에 대한 검색 결과입니다.`;
+  }
 };
 $searchInput.addEventListener("keyup", (e) => {
   e.preventDefault();
