@@ -30,7 +30,7 @@ const saveToLocal = (isbn) => {
   }
 };
 
-//각각의 책에 조재하는 버튼 눌렀을 때, localStorage에 값 삭제하기
+//각각의 책에 존재하는 버튼 눌렀을 때, localStorage에 값 삭제하기
 const deleteToLocal = (isbn) => {
   const updateList = localList.filter((elem) => elem !== isbn);
   localList = updateList;
