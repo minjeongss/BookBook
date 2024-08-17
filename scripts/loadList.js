@@ -27,6 +27,7 @@ const makeBook = (
   publisher,
   description
 ) => {
+  const titleSplit = title.split("-");
   const li = document.createElement("li");
   li.classList.add("book");
   li.innerHTML = `
@@ -36,7 +37,7 @@ const makeBook = (
         <p hidden>${description}</p>
       </div>
       <div>
-          <p>${title}</p>
+          <p>${titleSplit[0]}</p>
           <p>${price}원</p>
           <p>${author}/${publisher}</p>
       </div>
@@ -75,6 +76,7 @@ const makeFavoriteBook = (
   publisher,
   description
 ) => {
+  const titleSplit = title.split("-");
   const li = document.createElement("li");
   li.classList.add("favoriteBook");
   li.innerHTML = `
@@ -84,7 +86,7 @@ const makeFavoriteBook = (
         <p hidden>${description}</p>
       </div>
       <div>
-          <p>${title}</p>
+          <p>${titleSplit[0]}</p>
           <p>${price}원</p>
           <p>${author}/${publisher}</p>
       </div>
