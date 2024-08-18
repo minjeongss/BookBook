@@ -46,4 +46,6 @@ main {
 .pagination {
   display: flex;
   justify-content: center;
+  margin: 80px auto;
+  gap: 5px;
 }

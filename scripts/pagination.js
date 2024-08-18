@@ -1,8 +1,15 @@
 const $pagination = document.querySelector(".pagination");
-const $paginationNumber = document.querySelector(".paginationNumber");
+$pagination.addEventListener("click", (e) => {
+  const $paginationNumber = e.target.closest(".paginationNumber");
+  if ($paginationNumber) {
+    console.log($paginationNumber);
+  }
+});
+
 const loadPagination = () => {
-  $paginationNumber.innerHTML = `
-        <span>1</span>
+  $pagination.querySelector(".paginationNumbers").innerHTML = `
+        <span class="paginationNumber">1</span>
+        <span class="paginationNumber">2</span>
     `;
 };
 loadPagination();
