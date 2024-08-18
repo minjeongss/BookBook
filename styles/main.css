@@ -21,15 +21,50 @@ main {
 }
 .book {
   position: relative;
+  transition: all 0.5s ease;
 }
 .book .coverWrapper {
+  position: relative;
   width: 200px;
   height: 200px;
+}
+.book .description {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* 수평 및 수직 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 수평 중앙 정렬 */
 }
 .book .cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.book .contentWrapper {
+  display: block;
+}
+.book .contentWrapper p {
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .book .heartBtn {
   position: absolute;
@@ -41,4 +76,10 @@ main {
 .book .heartBtn.on {
   stroke: none;
   fill: var(--color-red);
+}
+.book:hover {
+  transform: scale(1.1);
+}
+.book:hover .description {
+  opacity: 1;
 }
