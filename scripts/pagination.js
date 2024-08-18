@@ -66,7 +66,13 @@ const loadPaginationBooks = () => {};
 $pagination.addEventListener("click", (e) => {
   const $paginationNumber = e.target.closest(".paginationNumber");
   if ($paginationNumber) {
-    console.log($paginationNumber);
+    const clickPage = $paginationNumber.innerHTML;
+    const pageDiff = clickPage - currentPage;
+    if (pageDiff !== 0) {
+      currentPage += pageDiff;
+      $paginationNumbers.replaceChildren();
+      calculatePagination();
+    }
   }
 
   const $prevBtn = e.target.closest(".prevBtn");
@@ -90,7 +96,7 @@ $pagination.addEventListener("click", (e) => {
   }
 });
 
-const initPagination = () => {
+const init = () => {
   calculatePagination();
 };
-initPagination();
+init();
