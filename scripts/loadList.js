@@ -143,7 +143,7 @@ $books.addEventListener(
       const description = coverWrapper.querySelector(".description");
       const cover = coverWrapper.querySelector(".cover");
       if (description && cover) {
-        console.log("IN");
+        // console.log("IN");
       }
     }
   },
@@ -157,7 +157,7 @@ $books.addEventListener(
       const coverWrapper = book.querySelector(".coverWrapper");
       const description = coverWrapper.querySelector(".description");
       if (description) {
-        console.log("out");
+        // console.log("out");
       }
     }
   },
