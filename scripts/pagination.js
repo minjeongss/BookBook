@@ -9,10 +9,10 @@ const $paginationNumbers = document.querySelector(".paginationNumbers");
  */
 
 let currentPage = 1;
-const totalCount = 200;
+let totalCount = 200;
 const pageCount = 5;
 const limit = 8;
-const totalPage = Math.ceil(totalCount / limit);
+let totalPage = Math.ceil(totalCount / limit);
 
 /**
  * 계산법
@@ -38,7 +38,9 @@ const totalPage = Math.ceil(totalCount / limit);
  * 첫 번쨰 페이지부터 마지막 페이지까지 for문으로 순회하며 버튼 그리기
  */
 
-const calculatePagination = () => {
+const calculatePagination = async () => {
+  await loadBookAPI();
+  totalPage = Math.ceil(totalCount / limit);
   let pageGroup = Math.ceil(currentPage / pageCount);
   let lastNumber = pageGroup * pageCount;
   if (lastNumber > totalPage) {
@@ -50,14 +52,16 @@ const calculatePagination = () => {
   loadPagination(firstNumber, lastNumber);
 };
 
-const loadPagination = (firstNumber, lastNumber) => {
+const loadBookAPI = async () => {
   console.log("load!");
   $books.replaceChildren();
   if ($searchInput.value === "") {
-    loadBooksTemplate(currentPage);
+    await loadBooksTemplate(currentPage);
   } else {
-    loadSearchBooksTemplate($searchInput.value, currentPage);
+    await loadSearchBooksTemplate($searchInput.value, currentPage);
   }
+};
+const loadPagination = (firstNumber, lastNumber) => {
   for (let i = firstNumber; i <= lastNumber; i++) {
     let p = document.createElement("p");
     p.innerHTML = `${i}`;
