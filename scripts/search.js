@@ -5,7 +5,9 @@ const loadSearchResult = async () => {
   const inputValue = $searchInput.value;
   if (inputValue === "") {
     $books.replaceChildren();
-    loadBooksTemplate();
+    $paginationNumbers.replaceChildren();
+    currentPage = 1;
+    calculatePagination();
     $searchResult.innerHTML = ``;
   } else {
     $books.replaceChildren();

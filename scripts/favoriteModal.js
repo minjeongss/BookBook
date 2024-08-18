@@ -22,7 +22,7 @@ $modalClose.addEventListener("click", () => {
   if ($searchInput.value === "") {
     loadBooksTemplate(currentPage);
   } else {
-    loadSearchBooksTemplate(inputValue);
+    loadSearchBooksTemplate($searchInput.value);
   }
   //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
   setTimeout(() => {

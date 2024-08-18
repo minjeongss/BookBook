@@ -63,7 +63,6 @@ const loadPagination = (firstNumber, lastNumber) => {
   }
 };
 
-const loadPaginationBooks = () => {};
 $pagination.addEventListener("click", (e) => {
   const $paginationNumber = e.target.closest(".paginationNumber");
   if ($paginationNumber) {
