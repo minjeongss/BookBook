@@ -23,6 +23,8 @@ const getData = (start = 1) => {
   )
     .then((response) => response.json())
     .then((data) => {
+      totalCount = data.totalResults;
+      console.log("totalCount update", totalCount, data.totalResults);
       return data.item;
     })
     .catch((error) => {
@@ -49,6 +51,8 @@ const getSearchData = (searchValue, start = 1) => {
   )
     .then((response) => response.json())
     .then((data) => {
+      totalCount = data.totalResults;
+      console.log("totalCount update", totalCount, data.totalResults);
       return data.item;
     })
     .catch((error) => {
