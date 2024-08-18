@@ -55,10 +55,11 @@ const loadPagination = (firstNumber, lastNumber) => {
   $books.replaceChildren();
   loadBooksTemplate(currentPage);
   for (let i = firstNumber; i <= lastNumber; i++) {
-    let button = document.createElement("button");
-    button.innerHTML = `${i}`;
-    button.classList.add("paginationNumber");
-    $paginationNumbers.appendChild(button);
+    let p = document.createElement("p");
+    p.innerHTML = `${i}`;
+    p.classList.add("paginationNumber");
+    if (i === currentPage) p.classList.add("current");
+    $paginationNumbers.appendChild(p);
   }
 };
 
