@@ -1,0 +1,77 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 70%;
+  background-color: var(--color-blueGray);
+  border-radius: 20px;
+  z-index: 999;
+}
+.modal.on {
+  display: flex;
+  justify-content: center;
+}
+.modal .text {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.modal .modalClose {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  transform: translate((-5%, 0));
+}
+.modal .favoriteBooks {
+  /* position: absolute; */
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  place-items: center;
+  gap: 80px;
+
+  width: 80%;
+  margin: 80px auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.modal .favoriteBook {
+  position: relative;
+}
+.modal .favoriteBook .coverWrapper {
+  width: 200px;
+  height: 200px;
+}
+.modal .favoriteBook .cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal .favoriteBook .heartBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  stroke: var(--color-gray);
+  fill: none;
+}
+.modal .favoriteBook .heartBtn.on {
+  stroke: none;
+  fill: var(--color-red);
+}
+
+.modalBackground {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 500;
+}
+.modalBackground.on {
+  display: block;
+}
