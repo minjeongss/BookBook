@@ -45,11 +45,10 @@ main {
   padding: 10px;
   box-sizing: border-box;
 
-  /* 수평 및 수직 중앙 정렬 */
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center; /* 수평 중앙 정렬 */
+  text-align: center;
 }
 .book .cover {
   width: 100%;
