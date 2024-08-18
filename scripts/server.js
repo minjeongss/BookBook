@@ -19,7 +19,7 @@ app.get("/api/list", async (req, res) => {
       params: {
         ttbkey: process.env.TTB_KEY,
         QueryType: queryType || "BestSeller",
-        MaxResults: maxResults || 20,
+        MaxResults: maxResults || 8,
         Cover: "Big",
         start: start || 1,
         SearchTarget: searchTarget || "Book",

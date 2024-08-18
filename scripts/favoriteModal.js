@@ -20,9 +20,9 @@ $modalClose.addEventListener("click", () => {
   //모달 내부 즐겨찾기 취소한 결과 반영하는 부분
   $books.replaceChildren();
   if ($searchInput.value === "") {
-    loadBooksTemplate();
+    loadBooksTemplate(currentPage);
   } else {
-    loadSearchBooksTemplate(inputValue);
+    loadSearchBooksTemplate($searchInput.value);
   }
   //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
   setTimeout(() => {

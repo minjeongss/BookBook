@@ -2,9 +2,9 @@ const $books = document.querySelector(".books");
 const $cover = document.querySelector(".cover");
 
 //fetch한 데이터 활용
-const loadBooks = async () => {
+const loadBooks = async (start = 1) => {
   document.querySelector(".searchInput").focus();
-  const data = await getData();
+  const data = await getData(start);
   if (data === undefined) {
     console.log("FAIL LOAD");
   } else {
@@ -16,8 +16,8 @@ const loadFavoriteBooks = async (isbn) => {
   const data = await getFavoriteData(isbn);
   return data;
 };
-const loadSearchBooks = async (searchValue) => {
-  const data = await getSearchData(searchValue);
+const loadSearchBooks = async (searchValue, start = 1) => {
+  const data = await getSearchData(searchValue, start);
   return data;
 };
 
@@ -53,8 +53,8 @@ const makeBook = (
     `;
   return li;
 };
-const loadBooksTemplate = async () => {
-  const data = await loadBooks();
+const loadBooksTemplate = async (start = 1) => {
+  const data = await loadBooks(start);
   data.map((elem) => {
     $books.appendChild(
       makeBook(
@@ -118,8 +118,8 @@ const loadFavoriteBooksTemplate = async () => {
     );
   }
 };
-const loadSearchBooksTemplate = async (inputValue) => {
-  const data = await loadSearchBooks(inputValue);
+const loadSearchBooksTemplate = async (inputValue, start = 1) => {
+  const data = await loadSearchBooks(inputValue, start);
   data.map((elem) => {
     $books.appendChild(
       makeBook(
@@ -163,7 +163,7 @@ $books.addEventListener(
   },
   true
 );
-const initMain = () => {
-  loadBooksTemplate();
-};
-initMain();
+// const initMain = () => {
+//   loadBooksTemplate();
+// };
+// initMain();
