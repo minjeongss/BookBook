@@ -1,4 +1,3 @@
-const $books = document.querySelector(".books");
 let localList = [];
 let isFavoriteLimit = false;
 
@@ -43,10 +42,6 @@ const deleteToLocal = (isbn) => {
 };
 
 $books.addEventListener("click", (e) => {
-  const targetBook = e.target;
-  if (targetBook.classList.contains("book")) {
-    // console.log(li);
-  }
   const targetHeart = e.target.closest(".heartBtn");
   if (targetHeart) {
     const isbn = e.target.closest(".book").querySelector(".isbn").innerText;
@@ -56,12 +51,6 @@ $books.addEventListener("click", (e) => {
       saveToLocal(isbn);
     }
     if (!isFavoriteLimit) targetHeart.classList.toggle("on");
-  }
-});
-$books.addEventListener("mouseout", (e) => {
-  const li = e.target;
-  if (li.classList.contains("book")) {
-    // console.log(li);
   }
 });
 

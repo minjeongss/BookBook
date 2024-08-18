@@ -1,3 +1,6 @@
+const $books = document.querySelector(".books");
+const $cover = document.querySelector(".cover");
+
 //fetch한 데이터 활용
 const loadBooks = async () => {
   document.querySelector(".searchInput").focus();
@@ -34,7 +37,7 @@ const makeBook = (
       <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p hidden>${description}</p>
+        <p class="description" hidden>${description}</p>
       </div>
       <div>
           <p>${titleSplit[0]}</p>
@@ -83,7 +86,7 @@ const makeFavoriteBook = (
     <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p hidden>${description}</p>
+        <p class="description" hidden>${description}</p>
       </div>
       <div>
           <p>${titleSplit[0]}</p>
@@ -115,7 +118,51 @@ const loadFavoriteBooksTemplate = async () => {
     );
   }
 };
-
+const loadSearchBooksTemplate = async (inputValue) => {
+  const data = await loadSearchBooks(inputValue);
+  data.map((elem) => {
+    $books.appendChild(
+      makeBook(
+        elem["isbn13"],
+        elem["cover"],
+        elem["title"],
+        elem["priceStandard"],
+        elem["author"],
+        elem["publisher"],
+        elem["description"]
+      )
+    );
+  });
+};
+$books.addEventListener(
+  "mouseenter",
+  (e) => {
+    const book = e.target.closest(".book");
+    if (book) {
+      const coverWrapper = book.querySelector(".coverWrapper");
+      const description = coverWrapper.querySelector(".description");
+      const cover = coverWrapper.querySelector(".cover");
+      if (description && cover) {
+        // console.log("IN");
+      }
+    }
+  },
+  true
+);
+$books.addEventListener(
+  "mouseout",
+  (e) => {
+    const book = e.target.closest(".book");
+    if (book) {
+      const coverWrapper = book.querySelector(".coverWrapper");
+      const description = coverWrapper.querySelector(".description");
+      if (description) {
+        // console.log("out");
+      }
+    }
+  },
+  true
+);
 const initMain = () => {
   loadBooksTemplate();
 };
