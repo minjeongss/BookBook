@@ -1,5 +1,6 @@
 const $books = document.querySelector(".books");
 const $cover = document.querySelector(".cover");
+const $logo = document.querySelector("h1");
 
 //fetch한 데이터 활용
 const loadBooks = async (start = 1) => {
@@ -163,6 +164,21 @@ $books.addEventListener(
   },
   true
 );
+$logo.addEventListener("click", () => {
+  if ($searchInput.value !== "") {
+    $searchInput.value = "";
+    $searchResult.innerHTML = ``;
+  }
+  $books.replaceChildren();
+  $paginationNumbers.replaceChildren();
+  currentPage = 1;
+  calculatePagination();
+  //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
+  setTimeout(() => {
+    console.log("SUCCESS LOAD HEART");
+    getFromLocal();
+  }, 1000);
+});
 // const initMain = () => {
 //   loadBooksTemplate();
 // };
