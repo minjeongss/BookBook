@@ -5,12 +5,11 @@ const loadSearchResult = async () => {
   const inputValue = $searchInput.value;
   if (inputValue === "") {
     $books.replaceChildren();
-    loadBooks();
+    loadBooksTemplate();
     $searchResult.innerHTML = ``;
   } else {
-    const data = await loadSearchBooks(inputValue);
     $books.replaceChildren();
-    loadBooksTemplate(data);
+    loadSearchBooksTemplate(inputValue);
     $searchResult.innerHTML = `"${inputValue}"에 대한 검색 결과입니다.`;
   }
 };

@@ -17,3 +17,18 @@ $modalClose.addEventListener("click", () => {
   $modalBackground.classList.remove("on");
   $favoriteBooks.replaceChildren();
 });
+
+$favoriteBooks.addEventListener("click", (e) => {
+  const targetHeart = e.target.closest(".heartBtn");
+  if (targetHeart) {
+    const isbn = e.target
+      .closest(".favoriteBook")
+      .querySelector(".isbn").innerText;
+    if (targetHeart.classList.contains("on")) {
+      deleteToLocal(isbn);
+    } else {
+      saveToLocal(isbn);
+    }
+    if (!isFavoriteLimit) targetHeart.classList.toggle("on");
+  }
+});
