@@ -52,6 +52,8 @@ const calculatePagination = () => {
 
 const loadPagination = (firstNumber, lastNumber) => {
   console.log("load!");
+  $books.replaceChildren();
+  loadBooksTemplate(currentPage);
   for (let i = firstNumber; i <= lastNumber; i++) {
     let button = document.createElement("button");
     button.innerHTML = `${i}`;
@@ -60,6 +62,7 @@ const loadPagination = (firstNumber, lastNumber) => {
   }
 };
 
+const loadPaginationBooks = () => {};
 $pagination.addEventListener("click", (e) => {
   const $paginationNumber = e.target.closest(".paginationNumber");
   if ($paginationNumber) {

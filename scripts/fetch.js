@@ -9,7 +9,7 @@ const fakeFetch = () => {
 };
 
 //fetch
-const getData = () => {
+const getData = (start = 1) => {
   // return fakeFetch()
   //   .then((data) => {
   //     return data.item;
@@ -18,7 +18,9 @@ const getData = () => {
   //     console.error("API 요청 중 오류 발생:", error);
   //     return undefined;
   //   });
-  return fetch("http://localhost:3000/api/list?queryType=ItemNewAll")
+  return fetch(
+    `http://localhost:3000/api/list?queryType=ItemNewAll&start=${start}`
+  )
     .then((response) => response.json())
     .then((data) => {
       return data.item;
