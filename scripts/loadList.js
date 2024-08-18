@@ -16,8 +16,8 @@ const loadFavoriteBooks = async (isbn) => {
   const data = await getFavoriteData(isbn);
   return data;
 };
-const loadSearchBooks = async (searchValue) => {
-  const data = await getSearchData(searchValue);
+const loadSearchBooks = async (searchValue, start = 1) => {
+  const data = await getSearchData(searchValue, start);
   return data;
 };
 
@@ -118,8 +118,8 @@ const loadFavoriteBooksTemplate = async () => {
     );
   }
 };
-const loadSearchBooksTemplate = async (inputValue) => {
-  const data = await loadSearchBooks(inputValue);
+const loadSearchBooksTemplate = async (inputValue, start = 1) => {
+  const data = await loadSearchBooks(inputValue, start);
   data.map((elem) => {
     $books.appendChild(
       makeBook(

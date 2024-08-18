@@ -3,15 +3,15 @@ const $searchInput = document.querySelector(".searchInput");
 
 const loadSearchResult = async () => {
   const inputValue = $searchInput.value;
+  $books.replaceChildren();
+  $paginationNumbers.replaceChildren();
+  currentPage = 1;
+  calculatePagination();
+
   if (inputValue === "") {
-    $books.replaceChildren();
-    $paginationNumbers.replaceChildren();
-    currentPage = 1;
-    calculatePagination();
     $searchResult.innerHTML = ``;
   } else {
-    $books.replaceChildren();
-    loadSearchBooksTemplate(inputValue);
+    // loadSearchBooksTemplate(inputValue);
     $searchResult.innerHTML = `"${inputValue}"에 대한 검색 결과입니다.`;
   }
 };

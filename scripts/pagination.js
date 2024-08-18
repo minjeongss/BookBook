@@ -53,7 +53,11 @@ const calculatePagination = () => {
 const loadPagination = (firstNumber, lastNumber) => {
   console.log("load!");
   $books.replaceChildren();
-  loadBooksTemplate(currentPage);
+  if ($searchInput.value === "") {
+    loadBooksTemplate(currentPage);
+  } else {
+    loadSearchBooksTemplate($searchInput.value, currentPage);
+  }
   for (let i = firstNumber; i <= lastNumber; i++) {
     let p = document.createElement("p");
     p.innerHTML = `${i}`;
