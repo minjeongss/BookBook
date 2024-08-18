@@ -32,11 +32,10 @@ const makeBook = (
   description
 ) => {
   const titleSplit = title.split("-");
-  const li = document.createElement("li");
-  li.classList.add("book");
-  console.log(description);
   const descriptionSplit =
     description.length <= 75 ? description : description.substr(0, 74);
+  const li = document.createElement("li");
+  li.classList.add("book");
   li.innerHTML = `
       <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
@@ -84,15 +83,17 @@ const makeFavoriteBook = (
   description
 ) => {
   const titleSplit = title.split("-");
+  const descriptionSplit =
+    description.length <= 75 ? description : description.substr(0, 74);
   const li = document.createElement("li");
   li.classList.add("favoriteBook");
   li.innerHTML = `
     <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p class="description">${description}</p>
+        <p class="description">${descriptionSplit}</p>
       </div>
-      <div>
+      <div class="contentWrapper">
           <p>${titleSplit[0]}</p>
           <p>${price}원</p>
           <p>${author}/${publisher}</p>

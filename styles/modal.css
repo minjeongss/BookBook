@@ -27,7 +27,6 @@
   transform: translate((-5%, 0));
 }
 .modal .favoriteBooks {
-  /* position: absolute; */
   display: grid;
   grid-template-columns: repeat(3, 200px);
   place-items: center;
@@ -40,15 +39,49 @@
 }
 .modal .favoriteBook {
   position: relative;
+  transition: all 0.5s ease;
 }
 .modal .favoriteBook .coverWrapper {
+  position: relative;
   width: 200px;
   height: 200px;
+}
+.modal .favoriteBook .description {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .modal .favoriteBook .cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.modal .favoriteBook .contentWrapper {
+  display: block;
+}
+.modal .favoriteBook .contentWrapper p {
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .modal .favoriteBook .heartBtn {
   position: absolute;
@@ -61,7 +94,12 @@
   stroke: none;
   fill: var(--color-red);
 }
-
+.modal .favoriteBook:hover {
+  transform: scale(1.1);
+}
+.modal .favoriteBook:hover .description {
+  opacity: 1;
+}
 .modalBackground {
   display: none;
   position: fixed;
