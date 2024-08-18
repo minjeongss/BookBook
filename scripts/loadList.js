@@ -34,11 +34,14 @@ const makeBook = (
   const titleSplit = title.split("-");
   const li = document.createElement("li");
   li.classList.add("book");
+  console.log(description);
+  const descriptionSplit =
+    description.length <= 75 ? description : description.substr(0, 74);
   li.innerHTML = `
       <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p class="description">${description}</p>
+        <p class="description">${descriptionSplit}</p>
       </div>
       <div class="contentWrapper">
           <p>${titleSplit[0]}</p>
@@ -87,7 +90,7 @@ const makeFavoriteBook = (
     <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p class="description off">${description}</p>
+        <p class="description">${description}</p>
       </div>
       <div>
           <p>${titleSplit[0]}</p>
@@ -150,7 +153,3 @@ $logo.addEventListener("click", () => {
     getFromLocal();
   }, 1000);
 });
-// const initMain = () => {
-//   loadBooksTemplate();
-// };
-// initMain();
