@@ -38,9 +38,9 @@ const makeBook = (
       <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p class="description" hidden>${description}</p>
+        <p class="description">${description}</p>
       </div>
-      <div>
+      <div class="contentWrapper">
           <p>${titleSplit[0]}</p>
           <p>${price}원</p>
           <p>${author}/${publisher}</p>
@@ -87,7 +87,7 @@ const makeFavoriteBook = (
     <p class="isbn" hidden>${isbn}</p>
       <div class="coverWrapper">
         <img class="cover" src="${cover}" alt="book image"/>
-        <p class="description" hidden>${description}</p>
+        <p class="description off">${description}</p>
       </div>
       <div>
           <p>${titleSplit[0]}</p>
@@ -135,35 +135,6 @@ const loadSearchBooksTemplate = async (inputValue, start = 1) => {
     );
   });
 };
-$books.addEventListener(
-  "mouseenter",
-  (e) => {
-    const book = e.target.closest(".book");
-    if (book) {
-      const coverWrapper = book.querySelector(".coverWrapper");
-      const description = coverWrapper.querySelector(".description");
-      const cover = coverWrapper.querySelector(".cover");
-      if (description && cover) {
-        // console.log("IN");
-      }
-    }
-  },
-  true
-);
-$books.addEventListener(
-  "mouseout",
-  (e) => {
-    const book = e.target.closest(".book");
-    if (book) {
-      const coverWrapper = book.querySelector(".coverWrapper");
-      const description = coverWrapper.querySelector(".description");
-      if (description) {
-        // console.log("out");
-      }
-    }
-  },
-  true
-);
 $logo.addEventListener("click", () => {
   if ($searchInput.value !== "") {
     $searchInput.value = "";
