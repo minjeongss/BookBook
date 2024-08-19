@@ -10,6 +10,7 @@
   --color-darkGreen: #618264;
   --color-green: #c1dfc4;
   --color-lightGreen: #deecdd;
+  --bg-linear: linear-gradient(to top, #618264, #c1dfc4);
 }
 li {
   list-style: none;

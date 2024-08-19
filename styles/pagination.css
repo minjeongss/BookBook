@@ -21,14 +21,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 3px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 .paginationNumber:hover {
   cursor: pointer;
-  background-color: var(--color-green);
+  background-color: var(--color-lightGreen);
 }
 .paginationNumber.current {
-  background-color: var(--color-green);
-  border: 3px solid var(--color-darkGreen);
+  border: 2.5px solid var(--color-darkGreen);
 }

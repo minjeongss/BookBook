@@ -13,6 +13,13 @@ main {
   align-items: center;
   height: 80px;
 }
+.searchResult p {
+  background-image: var(--bg-linear);
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
 .books {
   display: grid;
   grid-template-columns: repeat(4, 200px);
