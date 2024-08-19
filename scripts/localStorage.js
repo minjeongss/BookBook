@@ -24,7 +24,7 @@ const saveToLocal = (isbn) => {
     localList.push(isbn);
     localStorage.setItem("isbnList", JSON.stringify(localList));
   } else {
-    alert("⚠️ 좋아요의 최대 개수는 20개입니다 ⚠️");
+    loadTost("favoriteAlert", 1000);
     isFavoriteLimit = true;
   }
 };
@@ -46,8 +46,10 @@ $books.addEventListener("click", (e) => {
   if (targetHeart) {
     const isbn = e.target.closest(".book").querySelector(".isbn").innerText;
     if (targetHeart.classList.contains("on")) {
+      loadTost("favoriteDelete", 1000);
       deleteToLocal(isbn);
     } else {
+      loadTost("favoriteAdd", 1000);
       saveToLocal(isbn);
     }
     if (!isFavoriteLimit) targetHeart.classList.toggle("on");

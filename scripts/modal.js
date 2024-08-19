@@ -38,8 +38,10 @@ $favoriteBooks.addEventListener("click", (e) => {
       .closest(".favoriteBook")
       .querySelector(".isbn").innerText;
     if (targetHeart.classList.contains("on")) {
+      loadTost("favoriteDelete", 1000);
       deleteToLocal(isbn);
     } else {
+      loadTost("favoriteAdd", 1000);
       saveToLocal(isbn);
     }
     if (!isFavoriteLimit) targetHeart.classList.toggle("on");

@@ -144,6 +144,7 @@ $logo.addEventListener("click", () => {
     $searchInput.value = "";
     $searchResult.innerHTML = ``;
   }
+  loadTost("move", 1000);
   $books.replaceChildren();
   $paginationNumbers.replaceChildren();
   currentPage = 1;
