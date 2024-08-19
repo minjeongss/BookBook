@@ -22,6 +22,9 @@ main {
 .book {
   position: relative;
   transition: all 0.5s ease;
+  border: 2px solid var(--color-darkGreen);
+  border-radius: 10px;
+  padding: 20px;
 }
 .book .coverWrapper {
   position: relative;
@@ -67,16 +70,15 @@ main {
 }
 .book .heartBtn {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 5px;
   stroke: var(--color-gray);
   fill: none;
   transition: 0.3s all ease;
 }
-.book .heartBtn:hover {
+.book:hover .heartBtn {
   cursor: pointer;
-  stroke: none;
-  fill: var(--color-green);
+  stroke: var(--color-darkGreen);
 }
 .book .heartBtn.on {
   stroke: none;
