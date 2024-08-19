@@ -7,6 +7,9 @@
   --color-gray: #a5a5a5;
   --color-blueGray: #f5f5f5;
   --color-red: #ff0404;
+  --color-darkGreen: #618264;
+  --color-green: #c1dfc4;
+  --color-lightGreen: #deecdd;
 }
 li {
   list-style: none;
