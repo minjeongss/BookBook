@@ -20,7 +20,7 @@ const getFromLocal = () => {
 
 //loclaStorage에 값 저장하기
 const saveToLocal = (isbn) => {
-  if (localList.length >= 0 && localList.length <= 4) {
+  if (localList.length >= 0 && localList.length <= 20) {
     localList.push(isbn);
     localStorage.setItem("isbnList", JSON.stringify(localList));
   } else {
