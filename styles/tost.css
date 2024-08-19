@@ -1,0 +1,29 @@
+.tost {
+  z-index: 1000;
+  opacity: 0;
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 10px 50px;
+  background: white;
+  color: white;
+  border-radius: 10px;
+  transition: 0.3s all ease;
+}
+.tost.on {
+  opacity: 1;
+  bottom: 50px;
+}
+.tost.move,
+.tost.favoriteAdd,
+.tost.favoriteDelete {
+  background: #8ca36d;
+}
+.tost.search {
+  background: #c4c274;
+}
+.tost.alert,
+.tost.favoriteAlert {
+  background: #b76160;
+}
