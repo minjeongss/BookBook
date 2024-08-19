@@ -21,12 +21,13 @@
   transform: translate(-50%, 0);
   background: var(--bg-linear);
   color: white;
-  padding: 5px;
+  /* background: var(--color-green); */
+  padding: 8px 15px;
   border-radius: 5px;
   /* color: transparent;
   -webkit-background-clip: text; */
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 18px;
+  font-weight: 600;
 }
 .modal .modalClose {
   position: fixed;
