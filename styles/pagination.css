@@ -7,6 +7,14 @@
 .prevBtn {
   transform: scaleX(-1);
 }
+.prevBtn,
+.nextBtn {
+  /* opacity: 1; */
+}
+.prevBtn.firstPage,
+.nextBtn.lastPage {
+  display: none;
+}
 .prevBtn:hover,
 .nextBtn:hover {
   cursor: pointer;
