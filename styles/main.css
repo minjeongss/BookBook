@@ -82,3 +82,13 @@ main {
 .book:hover .description {
   opacity: 1;
 }
+@media (max-width: 800px) {
+  main {
+    margin: 200px auto 0px auto;
+  }
+  .books {
+    grid-template-columns: repeat(2, 200px);
+    gap: 100px;
+    justify-content: center;
+  }
+}
