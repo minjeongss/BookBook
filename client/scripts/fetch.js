@@ -19,7 +19,7 @@ const getData = (start = 1) => {
   //     return undefined;
   //   });
   return fetch(
-    `https://book-book-eight.vercel.app/api/list?queryType=ItemNewAll&start=${start}`
+    `https://book-book-server.vercel.app/api/list?queryType=ItemNewAll&start=${start}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -35,7 +35,7 @@ const getData = (start = 1) => {
 
 const getFavoriteData = async (isbn) => {
   return fetch(
-    `https://book-book-eight.vercel.app/api/favorite?itemIsbn=${isbn}`
+    `https://book-book-server.vercel.app/api/favorite?itemIsbn=${isbn}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -49,7 +49,7 @@ const getFavoriteData = async (isbn) => {
 
 const getSearchData = (searchValue, start = 1) => {
   return fetch(
-    `https://book-book-eight.vercel.app/api/search?query=${searchValue}&queryType=Keyword&start=${start}`
+    `https://book-book-server.vercel.app/api/search?query=${searchValue}&queryType=Keyword&start=${start}`
   )
     .then((response) => response.json())
     .then((data) => {
