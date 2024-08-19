@@ -19,7 +19,7 @@ const getData = (start = 1) => {
   //     return undefined;
   //   });
   return fetch(
-    `http://localhost:3000/api/list?queryType=ItemNewAll&start=${start}`
+    `https://book-book-eight.vercel.app/api/list?queryType=ItemNewAll&start=${start}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -34,7 +34,9 @@ const getData = (start = 1) => {
 };
 
 const getFavoriteData = async (isbn) => {
-  return fetch(`http://localhost:3000/api/favorite?itemIsbn=${isbn}`)
+  return fetch(
+    `https://book-book-eight.vercel.app/api/favorite?itemIsbn=${isbn}`
+  )
     .then((response) => response.json())
     .then((data) => {
       return data.item;
@@ -47,7 +49,7 @@ const getFavoriteData = async (isbn) => {
 
 const getSearchData = (searchValue, start = 1) => {
   return fetch(
-    `http://localhost:3000/api/search?query=${searchValue}&queryType=Keyword&start=${start}`
+    `https://book-book-eight.vercel.app/api/search?query=${searchValue}&queryType=Keyword&start=${start}`
   )
     .then((response) => response.json())
     .then((data) => {
