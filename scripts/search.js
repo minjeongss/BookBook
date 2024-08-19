@@ -12,7 +12,7 @@ const loadSearchResult = async () => {
     $searchResult.innerHTML = ``;
   } else {
     // loadSearchBooksTemplate(inputValue);
-    $searchResult.innerHTML = `"${inputValue}"에 대한 검색 결과입니다.`;
+    $searchResult.innerHTML = `<p>${inputValue}</p>에 대한 검색 결과입니다 😊`;
   }
 };
 $searchInput.addEventListener("keyup", (e) => {
