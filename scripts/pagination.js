@@ -67,12 +67,23 @@ const loadPagination = (firstNumber, lastNumber) => {
     p.innerHTML = `${i}`;
     p.classList.add("paginationNumber");
     if (i === currentPage) p.classList.add("current");
+    if (firstNumber === 1) {
+      document.querySelector(".prevBtn").classList.add("firstPage");
+    } else if (lastNumber === totalPage) {
+      document.querySelector(".nextBtn").classList.add("lastPage");
+    } else {
+      document.querySelector(".prevBtn").classList.remove("firstPage");
+      document.querySelector(".nextBtn").classList.remove("lastPage");
+    }
     $paginationNumbers.appendChild(p);
   }
 };
 
 $pagination.addEventListener("click", (e) => {
   const $paginationNumber = e.target.closest(".paginationNumber");
+  const $prevBtn = e.target.closest(".prevBtn");
+  const $nextBtn = e.target.closest(".nextBtn");
+
   if ($paginationNumber) {
     const clickPage = $paginationNumber.innerHTML;
     const pageDiff = clickPage - currentPage;
@@ -87,8 +98,6 @@ $pagination.addEventListener("click", (e) => {
       }, 1000);
     }
   }
-
-  const $prevBtn = e.target.closest(".prevBtn");
   if ($prevBtn) {
     console.log($prevBtn);
     if (currentPage - 5 >= 1) {
@@ -103,7 +112,6 @@ $pagination.addEventListener("click", (e) => {
     }
   }
 
-  const $nextBtn = e.target.closest(".nextBtn");
   if ($nextBtn) {
     console.log($nextBtn);
     if (currentPage + 5 <= totalPage) {
