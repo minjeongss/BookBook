@@ -24,7 +24,8 @@ main {
   transition: all 0.5s ease;
   border: 2px solid var(--color-darkGreen);
   border-radius: 10px;
-  padding: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .book .coverWrapper {
   position: relative;
@@ -70,8 +71,8 @@ main {
 }
 .book .heartBtn {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 10px;
+  right: 10px;
   stroke: var(--color-gray);
   fill: none;
   transition: 0.3s all ease;

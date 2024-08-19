@@ -46,7 +46,7 @@ h1:hover {
   transition: all 0.3s ease;
 }
 .searchInput:focus {
-  outline: 3px solid var(--color-green);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .heartModalBtn {
@@ -69,7 +69,10 @@ h1:hover {
     gap: 20px;
   }
   h1 {
-    height: 50%;
+    height: 100%;
+  }
+  .logoImg {
+    width: 50px;
   }
   .searchForm {
     width: 80%;
