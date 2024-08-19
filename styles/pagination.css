@@ -26,9 +26,9 @@
 }
 .paginationNumber:hover {
   cursor: pointer;
-  background-color: var(--color-green);
+  background-color: var(--color-lightGreen);
 }
 .paginationNumber.current {
-  background-color: var(--color-green);
-  border: 3px solid var(--color-darkGreen);
+  background-image: var(--bg-linear);
+  border: 3px solid var(--color-green);
 }

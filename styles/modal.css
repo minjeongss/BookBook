@@ -48,6 +48,10 @@
 .modal .favoriteBook {
   position: relative;
   transition: all 0.5s ease;
+  /* border: 2px solid transparent;
+  background-image: linear-gradient(white, white), var(--bg-linear);
+  background-origin: border-box;
+  background-clip: content-box, border-box; */
   border: 2px solid var(--color-darkGreen);
   border-radius: 10px;
   padding: 25px;
