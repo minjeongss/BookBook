@@ -1,7 +1,7 @@
 main {
   max-width: 1000px;
   width: 100%;
-  margin: 80px auto;
+  margin: 80px auto 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -71,10 +71,16 @@ main {
   right: 0;
   stroke: var(--color-gray);
   fill: none;
+  transition: 0.3s all ease;
+}
+.book .heartBtn:hover {
+  cursor: pointer;
+  stroke: none;
+  fill: var(--color-green);
 }
 .book .heartBtn.on {
   stroke: none;
-  fill: var(--color-red);
+  fill: var(--color-darkGreen);
 }
 .book:hover {
   transform: scale(1.1);

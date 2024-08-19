@@ -7,6 +7,10 @@
 .prevBtn {
   transform: scaleX(-1);
 }
+.prevBtn:hover,
+.nextBtn:hover {
+  cursor: pointer;
+}
 .paginationNumbers {
   display: flex;
   gap: 10px;
@@ -17,8 +21,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.paginationNumber:hover {
+  cursor: pointer;
+  background-color: var(--color-green);
+  color: white;
 }
 .paginationNumber.current {
-  background-color: var(--color-gray);
-  border-radius: 3px;
+  background-color: var(--color-darkGreen);
+  color: white;
 }
