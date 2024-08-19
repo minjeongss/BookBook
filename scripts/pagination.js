@@ -80,6 +80,11 @@ $pagination.addEventListener("click", (e) => {
       currentPage += pageDiff;
       $paginationNumbers.replaceChildren();
       calculatePagination();
+      //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
+      setTimeout(() => {
+        console.log("SUCCESS LOAD HEART");
+        getFromLocal();
+      }, 1000);
     }
   }
 
@@ -90,6 +95,11 @@ $pagination.addEventListener("click", (e) => {
       currentPage -= 5;
       $paginationNumbers.replaceChildren();
       calculatePagination();
+      //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
+      setTimeout(() => {
+        console.log("SUCCESS LOAD HEART");
+        getFromLocal();
+      }, 1000);
     }
   }
 
@@ -100,6 +110,11 @@ $pagination.addEventListener("click", (e) => {
       currentPage += 5;
       $paginationNumbers.replaceChildren();
       calculatePagination();
+      //! fetch로 인한 시간 지연으로 DOM 로드가 완전히 될 때까지 대기함
+      setTimeout(() => {
+        console.log("SUCCESS LOAD HEART");
+        getFromLocal();
+      }, 1000);
     }
   }
 });
