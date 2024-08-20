@@ -41,8 +41,12 @@
 - 메인 화면 책 리스트 개수 4개 > 2개로 감소
 - 모달창 책 리스트 개수 3개 > 2개로 감소
 
+## 와이어프레임
+
+![BookBook_WireFrame](https://github.com/user-attachments/assets/c5a96ed5-12b5-454a-bf83-7fa0b5e8536b)
+
 ## 서버 실행
 
 ```js
-node scripts/server.js
+node server.js
 ```
