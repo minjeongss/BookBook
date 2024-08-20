@@ -1,4 +1,4 @@
-const url = "http://localhost:3000";
+const url = "https://bookbook-service.vercel.app"; //local test: http://localhost:3000
 
 //fake fetch: dummy data를 활용
 // import { FAKE_API_FILE } from "./FAKE_API_FILE.js";
