@@ -8,15 +8,6 @@
 - 와이어프레임
   ![BookBook_WireFrame](https://github.com/user-attachments/assets/c5a96ed5-12b5-454a-bf83-7fa0b5e8536b)
 
-## 서버 실행
-
-CORS와 관련된 문제가 존재하여, 자체적인 서버를 만들었습니다.
-로컬 환경에서 확인을 할 경우, 다음과 같이 server.js를 먼저 실행하는 것이 필수적입니다.
-
-```js
-node server.js
-```
-
 ## 설계
 
 1. 메인 화면 구현
