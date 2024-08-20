@@ -1,3 +1,5 @@
+const url = "http://localhost:3000";
+
 //fake fetch: dummy data를 활용
 // import { FAKE_API_FILE } from "./FAKE_API_FILE.js";
 const fakeFetch = () => {
@@ -18,9 +20,7 @@ const getData = (start = 1) => {
   //     console.error("API 요청 중 오류 발생:", error);
   //     return undefined;
   //   });
-  return fetch(
-    `https://book-book-server.vercel.app/api/list?queryType=ItemNewAll&start=${start}`
-  )
+  return fetch(`${url}/api/list?queryType=ItemNewAll&start=${start}`)
     .then((response) => response.json())
     .then((data) => {
       totalCount = data.totalResults;
@@ -34,9 +34,7 @@ const getData = (start = 1) => {
 };
 
 const getFavoriteData = async (isbn) => {
-  return fetch(
-    `https://book-book-server.vercel.app/api/favorite?itemIsbn=${isbn}`
-  )
+  return fetch(`${url}/api/favorite?itemIsbn=${isbn}`)
     .then((response) => response.json())
     .then((data) => {
       return data.item;
@@ -49,7 +47,7 @@ const getFavoriteData = async (isbn) => {
 
 const getSearchData = (searchValue, start = 1) => {
   return fetch(
-    `https://book-book-server.vercel.app/api/search?query=${searchValue}&queryType=Keyword&start=${start}`
+    `${url}/api/search?query=${searchValue}&queryType=Keyword&start=${start}`
   )
     .then((response) => response.json())
     .then((data) => {
