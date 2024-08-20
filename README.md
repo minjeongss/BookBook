@@ -2,6 +2,21 @@
 
 ## 설명
 
+## 기획서 및 와이어프레임
+
+- [기획서](https://www.figma.com/design/gD8eSWiTjTFMpoujnq8JLL/%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4-team1-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=0-1&t=fSy1p1AeCLSpsecI-0)
+- 와이어프레임
+  ![BookBook_WireFrame](https://github.com/user-attachments/assets/c5a96ed5-12b5-454a-bf83-7fa0b5e8536b)
+
+## 서버 실행
+
+CORS와 관련된 문제가 존재하여, 자체적인 서버를 만들었습니다.
+로컬 환경에서 확인을 할 경우, 다음과 같이 server.js를 먼저 실행하는 것이 필수적입니다.
+
+```js
+node server.js
+```
+
 ## 설계
 
 1. 메인 화면 구현
@@ -42,13 +57,3 @@
 - 메인 화면 헤더 flex 방향 column으로 변경
 - 메인 화면 책 리스트 개수 4개 > 2개로 감소
 - 모달창 책 리스트 개수 3개 > 2개로 감소
-
-## 와이어프레임
-
-![BookBook_WireFrame](https://github.com/user-attachments/assets/c5a96ed5-12b5-454a-bf83-7fa0b5e8536b)
-
-## 서버 실행
-
-```js
-node server.js
-```
