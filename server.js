@@ -5,10 +5,27 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 
-const app = express();
-const port = process.env.PORT || 3000;
+// 이 줄을 추가
+const path = require("path");
 
-app.use(cors());
+const app = express();
+const port = 3000;
+
+// CORS 설정을 더 구체적으로 지정
+app.use(
+  cors({
+    origin: ["https://bookbook2.vercel.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// 정적 파일 제공 설정
+app.use(express.static(path.join(__dirname, "public")));
+// 초기 라우트 설정
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.get("/api/list", async (req, res) => {
   try {
@@ -31,9 +48,9 @@ app.get("/api/list", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error("Error:", error.message);
-    res
-      .status(500)
-      .json({ error: "An error occurred while fetching data from Aladin API" });
+    res.status(500).json({
+      error: "An error occurred while fetching data from Aladin API",
+    });
   }
 });
 
@@ -59,9 +76,9 @@ app.get("/api/search", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error("Error:", error.message);
-    res
-      .status(500)
-      .json({ error: "An error occurred while fetching data from Aladin API" });
+    res.status(500).json({
+      error: "An error occurred while fetching data from Aladin API",
+    });
   }
 });
 
@@ -83,9 +100,9 @@ app.get("/api/favorite", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error("Error:", error.message);
-    res
-      .status(500)
-      .json({ error: "An error occurred while fetching data from Aladin API" });
+    res.status(500).json({
+      error: "An error occurred while fetching data from Aladin API",
+    });
   }
 });
 
