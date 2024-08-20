@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookBook</title>
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/pagination.css" />
+    <link rel="stylesheet" href="./styles/tost.css" />
+    <script src="./scripts/fetch.js" defer></script>
+    <script src="./scripts/loadList.js" defer></script>
+    <script src="./scripts/localStorage.js" defer></script>
+    <script src="./scripts/search.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/pagination.js" defer></script>
+    <script src="./scripts/tost.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="headerWrap">
+        <h1><img class="logoImg" src="./images/logo.svg" alt="" /></h1>
+        <div class="searchForm">
+          <input
+            class="searchInput"
+            type="text"
+            name="searchInput"
+            placeholder="검색어를 입력해주세요"
+            maxlength="25"
+          />
+        </div>
+        <img class="heartModalBtn" src="./images/heartDarkGreen.svg" alt="" />
+      </div>
+    </header>
+    <main>
+      <p class="searchResult"></p>
+      <ul class="books"></ul>
+      <div class="pagination">
+        <img class="prevBtn" src="./images/arrow.svg" alt="" />
+        <div class="paginationNumbers"></div>
+        <img class="nextBtn" src="./images/arrow.svg" alt="" />
+      </div>
+    </main>
+    <div class="modalBackground"></div>
+    <div class="modal">
+      <p class="text">즐겨찾는 도서</p>
+      <img class="modalClose" src="./images/cancel.svg" alt="" />
+      <ul class="favoriteBooks"></ul>
+    </div>
+    <div class="tost"></div>
+    <div id="result"></div>
+  </body>
+</html>
