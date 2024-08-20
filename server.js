@@ -14,7 +14,7 @@ const port = 3000;
 // CORS 설정을 더 구체적으로 지정
 app.use(
   cors({
-    origin: ["https://bookbook2.vercel.app", "http://localhost:3000"],
+    origin: ["https://bookbook-service.vercel.app", "http://localhost:3000"],
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
